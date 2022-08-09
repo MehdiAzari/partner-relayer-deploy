@@ -68,8 +68,6 @@ services:
     image: nearaurora/reverseproxy:latest
     restart: unless-stopped
     init: true
-    expose:
-      - '80'
     ports:
       - '10080:80'  # Remove this line to prevent listening on public IP address.
       #- '127.0.0.1:10080:80' # Remove the hashtag in the beginning of this line to enable listening on 127.0.0.1.
