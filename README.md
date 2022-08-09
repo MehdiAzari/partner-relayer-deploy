@@ -1,7 +1,15 @@
+
 Aurora Relayer & Near Core on mainnet
 =====================================
-
+Source repo: https://github.com/aurora-is-near/partner-relayer-deploy
 Requirements: docker, docker-compose, curl. x64-64 architecture.
+This project is customized for Valoura 
+At this stage we are not using Nginx for load balancing endpoints thus the docker compose file is would not start web server container. 
+
+the setup script is customized to copy the generated configs. After generating configs the script will run a container which downloads and syncs block data from S3 buckets to mounted path (`./near/data/`)
+
+After downloading the script will 
+
 
   1. Run `$ ./setup.sh`. Wait until it finishes with "Setup Complete". This can take hours due to the volume of data to download.
   2. Enjoy
@@ -40,10 +48,6 @@ downloaded, and the component restarted.
 This is however not true for the included database and chain files. These are only downloaded initially when
 running `./setup.sh`. Keep your node running to prevent going out of sync.
 
-Finding RPC endpoint
-====================
-
-The RPC endpoint is at http://127.0.0.1:10080/ as well as on the public IPs of your computer.
 
 Good to know
 ============
@@ -61,3 +65,4 @@ v2.0
   - Add scaling of endpoints for better performance.
   - Add reverse proxy for easier deployment and more stable operations.
   - Add automatic update functionality.
+
