@@ -17,6 +17,12 @@ mkdir near config database 2> /dev/null
 mkdir near/data 2> /dev/null
 
 
+if [ ! -f ./near/config.json ]; then
+		echo Downloading default configuration.
+			curl -sSf -o ./near/config.json https://files.deploy.aurora.dev/"${network}"/config.json
+fi
+
+
 if [ ! -f ./near/genesis.json ]; then
 	echo Downloading genesis file.
 	curl -sSf -o ./near/genesis.json.gz https://files.deploy.aurora.dev/"${network}"/genesis.json.gz
