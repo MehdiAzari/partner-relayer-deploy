@@ -1,5 +1,4 @@
-
-Aurora Relayer & Near Core on mainnet
+urora Relayer & Near Core on mainnet
 =====================================
 Source repo: https://github.com/aurora-is-near/partner-relayer-deploy
 Requirements: docker, docker-compose, curl. x64-64 architecture.
@@ -10,9 +9,30 @@ the setup script is customized to copy the generated configs. After generating c
 
 After downloading the script will 
 
-
   1. Run `$ ./setup.sh`. Wait until it finishes with "Setup Complete". This can take hours due to the volume of data to download.
   2. Enjoy
+  # Config
+
+### Near Wallet
+  in order to create relayer.json config file which provides access to NEAR account we use near CLI to login and generate file.
+  `$ near login` (consider bypassing sanctions)
+then copy the file to `config` directory as relayer.json
+
+### Light mode
+open the `./near/config.json` change `"tracked_shards": [0]` to empty array  -> `"tracked_shards": []`
+  
+# Changes
+```
+	modified:   README.md
+	modified:   contrib/docker-compose.yaml-testnet
+	modified:   contrib/docker/config.json
+	modified:   contrib/nginx/testnet/endpoint.conf
+	modified:   contrib/setup.sh
+	modified:   contrib/start.sh
+
+```
+# Testing
+use `while true; do python3 monitor.py ; sleep 1;done` use this to compare last block from your endpoint to public endpoint.
  
 Testnet
 =======
