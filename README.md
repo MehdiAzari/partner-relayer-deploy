@@ -1,4 +1,4 @@
-urora Relayer & Near Core on mainnet
+Aurora Relayer & Near Core on mainnet
 =====================================
 Source repo: https://github.com/aurora-is-near/partner-relayer-deploy
 Requirements: docker, docker-compose, curl. x64-64 architecture.
