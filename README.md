@@ -1,9 +1,11 @@
 Aurora Relayer & Near Core on mainnet
 =====================================
-Source repo: https://github.com/aurora-is-near/partner-relayer-deploy
-Requirements: docker, docker-compose, curl. x64-64 architecture.
+#### Source repo: https://github.com/aurora-is-near/partner-relayer-deploy
+
+#### Requirements: docker, docker-compose, curl. x64-64 architecture.
+
 This project is customized for Valoura 
-At this stage we are not using Nginx for load balancing endpoints thus the docker compose file is would not start web server container. 
+At this stage we are not using Nginx for load balancing endpoints thus the docker compose file would not start web server container. 
 
 the setup script is customized to copy the generated configs. After generating configs the script will run a container which downloads and syncs block data from S3 buckets to mounted path (`./near/data/`)
 
@@ -11,7 +13,8 @@ After downloading the script will
 
   1. Run `$ ./setup.sh`. Wait until it finishes with "Setup Complete". This can take hours due to the volume of data to download.
   2. Enjoy
-  # Config
+  
+# Config
 
 ### Near Wallet
   in order to create relayer.json config file which provides access to NEAR account we use near CLI to login and generate file.
